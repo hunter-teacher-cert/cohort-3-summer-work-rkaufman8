@@ -1,7 +1,7 @@
 /**
  * ArrayPractice by Team BossCoders
  * First Last
- * collaborators: Sarah McCoy, Rachel Kaufman, Stacy Goldstein
+ * collaborators: Sarah McCoy, Rachel Kaufman, Stacy Goldstein, Jenna Lin
  */
 
 /**
@@ -26,13 +26,13 @@
    Complete these methods:
    + buildRandomArray
    + printArray
-   + arraySum
+   - arraySum
    + firstOccurence
-   - findMaxValue
+   + findMaxValue
 
    Intermediate:
    Complete all the methods for basic and also
-   - buildIncreasingArray
+   + buildIncreasingArray
    - isSorted
    - countOdds
 
@@ -99,17 +99,17 @@ public class ArrayPractice
   }
 
 
-// sums up an array of any size
-  // public static int arraySum( int[] data )
-  // {
-  //   int sum=0;
+//sums up an array of any size
+  public static int arraySum( int[] data )
+  {
+    int sum=0;
          
-  //   for (int i = 0; i < data.length; i++) {
-  //     sum += data[i];
-  //   }
+    for (int datum:data) {
+      sum += datum;
+    }
 
-  //   return sum; // replace this
-  // }
+    return sum; // replace this
+  }
 
 
   /**
@@ -126,42 +126,46 @@ public class ArrayPractice
      An array with values 5,6,10,13,15 is not
 
   */
-  // public static boolean isSorted(int[] data)
-  // {
-  //   for (int i = 0; i < data.length; i++) {
-  //     if (data[i]>data[i+1]) {
-  //       return false;
-  //     }
-  //   }
-
-  //   return true; 
-
-  // }
-
-  /**
-     Parameters:
-     data - an array of integers
-
-     Returns:
-     value of the largest element in the array
-  */
-  
-  public static int findMaxValue( int[] data ) {
-    int maxVal=data[0];  // will hold the maximum value, initialize to the first value in array.
-
-    /* parse through the array
-          if the value at NEXT index is greater than the value at the CURRENT index, set maxVal to the value from the NEXT index
-*/
+  public static boolean isSorted(int[] data)
+  {
+    // put length-1 to avoid out of bounds error
     for (int i = 0; i < data.length - 1; i++) {
-      if (data[i+1]>maxVal) {//Compare next value to the current value
-       maxVal = data[i+1];
+      if (data[i] > data[i+1]) {
+        return false;
+      }
+    }
+
+    return true; 
+
+  }
+
+// finds and returns the max value in an array of any size
+  // public static int findMaxValue( int[] data ) {
+  //   int maxVal=data[0];  // holds current max value, init to first in array.
+
+  //   for (int i = 0; i < data.length - 1; i++) {
+  //     if (data[i+1]>maxVal) {//Compare next value to the current maxVale
+  //      maxVal = data[i+1];//overwrite maxVal
+		// }
+  // } 
+
+  //   return maxVal;
+  // }
+//Enhanced for loop?
+	public static int findMaxValue( int[] data ) {
+    int maxVal=data[0];  // holds current max value, initialize to first value in array.
+
+    for (int datum : data) {
+			//Compare each value to the current maxVal
+       if (datum > maxVal) {
+       maxVal = datum;
 		}
   } 
 
     return maxVal;
   }
 
-  /**
+  /**	
      Parameters:
      data - an array of integers
 
@@ -171,17 +175,17 @@ public class ArrayPractice
      Ex: if data holds 5,6,7,8,9,10 then the return value
      will be 3 since three of the elements are odd.
   */
-  // public static int countOdds( int[] data ) {
-  //   int count=0;
+  public static int countOdds( int[] data ) {
+    int count=0;
 
-  //   /* YOUR BRILLIANT CODE HERE */
-  //    for (int i = 0; i < data.length; i++) {
-  //      if(data[i]%2 !=0)
-  //        count++;
-  //    }
+    /* YOUR BRILLIANT CODE HERE */
+     for (int i = 0; i < data.length; i++) {
+       if(data[i]%2 !=0)
+         count++;
+     }
 
-  //   return count;
-  // }
+    return count;
+  }
 
   /**
      Parameters:
@@ -198,10 +202,21 @@ public class ArrayPractice
      If the input array contains 5,8,13,7,27,2
      After the routine, the array will contain 2,27,7,13,8,5
   */
-  // public static void flip( int[] data )
-  // {
-  //   /* YOUR BRILLIANT CODE HERE */
-  // }
+  public static void flip(int[] data )
+  {
+    int[] tempData = new int[data.length];
+
+    //set a temporary array to hold original array's order
+    for(int i=0; i < data.length; i++) {
+      tempData[i] = data[i];
+    }
+
+    //reset the original array in the reverse order
+    for(int i=0; i < data.length; i++) {
+      data[i] = tempData[(data.length-1) - i];
+    }
+    
+  }
 
 
   public static void main( String[] args )
@@ -210,14 +225,25 @@ public class ArrayPractice
     // remove the comments as you complete each routine
     // and add more lines as you add additional routines.
 
-     int[] data1 = buildRandomArray(15, 100);
-    // int[] data2 = buildIncreasingArray(10,5,3);
-     printArray(data1);
+     // int[] data1 = buildRandomArray(6, 10);
+    int[] data2 = buildIncreasingArray(10,6,2);
+     printArray(data2);
     // printArray(data2);
 
-    System.out.println("Max Value: " + findMaxValue(data1));
+    System.out.println("Max Value: " + findMaxValue(data2));
 
+    System.out.println("Sum of array values is " + arraySum(data2));
 
-    // add calls to show that the methods you write work.
+    System.out.println("Is it sorted? " + isSorted(data2));
+    System.out.println("Number of odd numbers in array = "+ countOdds(data2));
+
+    //not a return function so can't call it as a parameter
+    //here we use flip to reorder the array
+    flip(data2);
+
+    //print the revised array
+		System.out.println("Flipped array: ");
+    printArray(data2);
+
   }
 }

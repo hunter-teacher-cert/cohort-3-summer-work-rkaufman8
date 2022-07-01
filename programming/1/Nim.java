@@ -8,10 +8,13 @@ public class Nim {
     int stonesTaken = 0;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     boolean playerTurn = false;
 
 
 
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
     Scanner input = new Scanner(System.in);
@@ -19,6 +22,7 @@ public class Nim {
     //loop until game ends
     while(stonesTaken < stones){
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     
       playerTurn = !playerTurn;  
@@ -50,6 +54,8 @@ public class Nim {
     
 
 =======
+=======
+>>>>>>> origin/master
       System.out.print("Number of stones to take: ");
         int numStones = input.nextInt(); 
       stonesTaken += numStones;
@@ -76,6 +82,9 @@ public class Nim {
       }
     }
     System.out.println("Game over!");
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
   }
 }
