@@ -54,20 +54,15 @@ public class ArrayPractice
 
      Returns:
      a new array of integers
-
-     Examples:
-     buildIncreasingArray(5,3,2) will return an array
-     with the values 3,5,7,9,11 (five values, starting with 3 with a step size of 2)
   */
   public static int[] buildIncreasingArray( int size, int startValue, int step )
   {
     int[] data = new int[size];
 
-    // loop through each element of the array and
-    /* YOUR BRILLIANT CODE HERE */
-
-    // assign the appropriate value to each one.
-    /* YOUR BRILLIANT CODE HERE */
+    // loop through each element of the array and assign the appropriate value to each one
+    for (int i = 0; i < size; i++){
+      data[i] = startValue + (step * i);
+    }
 
     return data;
   }
@@ -87,7 +82,9 @@ public class ArrayPractice
     Random r = new Random();
     int[] data = new int[size];
 
-    /* YOUR BRILLIANT CODE HERE */
+    for (int i = 0; i < size; i++){
+      data[i] = r.nextInt(maxValue);
+    }
 
     return data;
   }
@@ -101,12 +98,12 @@ public class ArrayPractice
      nothing
 
      prints out the array
-
-     Note: data.length stores the length of the array
   */
   public static void printArray( int[] data )
   {
-    /* YOUR BRILLIANT CODE HERE */
+     for (int i = 0; i < data.length; i++) {
+      System.out.println(data[i]);
+    }
   }
 
 
@@ -126,10 +123,16 @@ public class ArrayPractice
   */
   public static int firstOccurence( int[] data, int value )
   {
+    int valPos = 0;
+    while (data[valPos] != value) {
+      valPos++;
+      
+      if(valPos == data.length) {
+        return -1;
+      }
+    }
 
-    /* YOUR BRILLIANT CODE HERE */
-
-    return 0; // change this (it is just a placeholder to "get past" the compiler)
+    return valPos; 
   }
 
 
@@ -144,9 +147,13 @@ public class ArrayPractice
   */
   public static int arraySum( int[] data )
   {
-    /* YOUR BRILLIANT CODE HERE */
+    int sum=0;
+         
+    for (int i = 0; i < data.length; i++) {
+      sum += data[i];
+    }
 
-    return 0; // replace this
+    return sum; // replace this
   }
 
 
@@ -164,13 +171,13 @@ public class ArrayPractice
      An array with values 5,6,10,13,15 is not
 
   */
-  public static boolean isSorted( int[] data )
-  {
-    /* YOUR BRILLIANT CODE HERE */
+  // public static boolean isSorted( int[] data )
+  // {
+  //   /* YOUR BRILLIANT CODE HERE */
 
-    return true; // replace this
+  //   return true; // replace this
 
-  }
+  // }
 
   /**
      Parameters:
@@ -179,13 +186,14 @@ public class ArrayPractice
      Returns:
      value of the largest element in the array
   */
-  public static int findMaxValue( int[] data ) {
-    int m;  // will hold the maximum value;
+  
+  // public static int findMaxValue( int[] data ) {
+  //   int m;  // will hold the maximum value;
 
-    /* YOUR BRILLIANT CODE HERE */
+  //   /* YOUR BRILLIANT CODE HERE */
 
-    return m;
-  }
+  //   return m;
+  // } 
 
 
   /**
@@ -198,16 +206,16 @@ public class ArrayPractice
      Ex: if data holds 5,6,7,8,9,10 then the return value
      will be 3 since three of the elements are odd.
   */
-  public static int countOdds( int[] data ) {
-    int count;
+  // public static int countOdds( int[] data ) {
+  //   int count;
 
-    /* YOUR BRILLIANT CODE HERE */
+  //   /* YOUR BRILLIANT CODE HERE */
 
-    // Note the % operator is the modulo (basically remainder) function
-    // in java. Use to determine if an integer is odd.
+  //   // Note the % operator is the modulo (basically remainder) function
+  //   // in java. Use to determine if an integer is odd.
 
-    return count;
-  }
+  //   return count;
+  // }
 
   /**
      Parameters:
@@ -224,10 +232,10 @@ public class ArrayPractice
      If the input array contains 5,8,13,7,27,2
      After the routine, the array will contain 2,27,7,13,8,5
   */
-  public static void flip( int[] data )
-  {
-    /* YOUR BRILLIANT CODE HERE */
-  }
+  // public static void flip( int[] data )
+  // {
+  //   /* YOUR BRILLIANT CODE HERE */
+  // }
 
 
   public static void main( String[] args )
@@ -236,10 +244,13 @@ public class ArrayPractice
     // remove the comments as you complete each routine
     // and add more lines as you add additional routines.
 
-    // int[] data = buildRandomArray(10, 20);
-    // int[] data2 = buildincreasingArray(10,5,3);
-    // printArray(data);
-    // printArray(data2);
+    // int[] data1 = buildRandomArray(10, 20);
+     int[] data2 = buildIncreasingArray(10,5,3);
+    // printArray(data1);
+     printArray(data2);
+
+    System.out.println("Value found at position: " + firstOccurence(data2, 32));
+
 
     // add calls to show that the methods you write work.
   }
