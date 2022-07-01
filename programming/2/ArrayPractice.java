@@ -1,7 +1,7 @@
 /**
  * ArrayPractice by Team BossCoders
  * First Last
- * collaborators: First Last, First Last
+ * collaborators: Sarah McCoy, Rachel Kaufman, Stacy Goldstein
  */
 
 /**
@@ -24,10 +24,10 @@
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    Basic:
    Complete these methods:
-   - buildRandomArray
-   - printArray
-   - arraySum
-   - firstOccurence
+   + buildRandomArray
+   + printArray
+   + arraySum
+   + firstOccurence
    - findMaxValue
 
    Intermediate:
@@ -46,16 +46,8 @@ import java.io.*;
 public class ArrayPractice
 {
 
-  /**
-     Parameters:
-     size - how large the array should be
-     startValue - the value of the first element
-     step - the interval to the next value
-
-     Returns:
-     a new array of integers
-  */
-  public static int[] buildIncreasingArray( int size, int startValue, int step )
+  //builds an array of a given size with a start value and increment value
+  public static int[] buildIncreasingArray(int size, int startValue, int step)
   {
     int[] data = new int[size];
 
@@ -67,16 +59,7 @@ public class ArrayPractice
     return data;
   }
 
-
-  /**
-     Parameters:
-     size - how many elements in the array
-     maxValue - the largest possible random value to use
-
-     Returns:
-     a new array where each element is an integer between 0
-     and up to but not including maxValue
-  */
+// builds an array of random numbers of a given size
   public static int[] buildRandomArray( int size, int maxValue )
   {
     Random r = new Random();
@@ -90,15 +73,7 @@ public class ArrayPractice
   }
 
 
-  /**
-     Parameters:
-     data - an array of ints
-
-     Returns:
-     nothing
-
-     prints out the array
-  */
+//prints any array of any size
   public static void printArray( int[] data )
   {
      for (int i = 0; i < data.length; i++) {
@@ -108,19 +83,7 @@ public class ArrayPractice
 
 
 
-  /**
-     Parameters:
-     data - an array of integers
-     value - the value to search for
-
-     Returns:
-     the index (location) of the first occurence of value
-
-     Example:
-     given array data, containing 1,5,2,7,5,8,5,12,19,5
-     firstOccurence(data,5) would return 1
-     since the first occurence of the value 5 is at a[1]
-  */
+//returns the index of the first occurence of a requested value in an array
   public static int firstOccurence( int[] data, int value )
   {
     int valPos = 0;
@@ -136,25 +99,17 @@ public class ArrayPractice
   }
 
 
-  /**
-     Parameters: data - an array of ints
-
-     Returns: an integer that is equal to the sum of all the elements in the array
-
-     Ex: If the input array has the values 5,2,4,10 the return
-     value will be 21 (5+2+4+10)
-
-  */
-  public static int arraySum( int[] data )
-  {
-    int sum=0;
+// sums up an array of any size
+  // public static int arraySum( int[] data )
+  // {
+  //   int sum=0;
          
-    for (int i = 0; i < data.length; i++) {
-      sum += data[i];
-    }
+  //   for (int i = 0; i < data.length; i++) {
+  //     sum += data[i];
+  //   }
 
-    return sum; // replace this
-  }
+  //   return sum; // replace this
+  // }
 
 
   /**
@@ -171,11 +126,15 @@ public class ArrayPractice
      An array with values 5,6,10,13,15 is not
 
   */
-  // public static boolean isSorted( int[] data )
+  // public static boolean isSorted(int[] data)
   // {
-  //   /* YOUR BRILLIANT CODE HERE */
+  //   for (int i = 0; i < data.length; i++) {
+  //     if (data[i]>data[i+1]) {
+  //       return false;
+  //     }
+  //   }
 
-  //   return true; // replace this
+  //   return true; 
 
   // }
 
@@ -187,14 +146,20 @@ public class ArrayPractice
      value of the largest element in the array
   */
   
-  // public static int findMaxValue( int[] data ) {
-  //   int m;  // will hold the maximum value;
+  public static int findMaxValue( int[] data ) {
+    int maxVal=data[0];  // will hold the maximum value, initialize to the first value in array.
 
-  //   /* YOUR BRILLIANT CODE HERE */
+    /* parse through the array
+          if the value at NEXT index is greater than the value at the CURRENT index, set maxVal to the value from the NEXT index
+*/
+    for (int i = 0; i < data.length - 1; i++) {
+      if (data[i+1]>maxVal) {//Compare next value to the current value
+       maxVal = data[i+1];
+		}
+  } 
 
-  //   return m;
-  // } 
-
+    return maxVal;
+  }
 
   /**
      Parameters:
@@ -207,12 +172,13 @@ public class ArrayPractice
      will be 3 since three of the elements are odd.
   */
   // public static int countOdds( int[] data ) {
-  //   int count;
+  //   int count=0;
 
   //   /* YOUR BRILLIANT CODE HERE */
-
-  //   // Note the % operator is the modulo (basically remainder) function
-  //   // in java. Use to determine if an integer is odd.
+  //    for (int i = 0; i < data.length; i++) {
+  //      if(data[i]%2 !=0)
+  //        count++;
+  //    }
 
   //   return count;
   // }
@@ -244,12 +210,12 @@ public class ArrayPractice
     // remove the comments as you complete each routine
     // and add more lines as you add additional routines.
 
-    // int[] data1 = buildRandomArray(10, 20);
-     int[] data2 = buildIncreasingArray(10,5,3);
-    // printArray(data1);
-     printArray(data2);
+     int[] data1 = buildRandomArray(15, 100);
+    // int[] data2 = buildIncreasingArray(10,5,3);
+     printArray(data1);
+    // printArray(data2);
 
-    System.out.println("Value found at position: " + firstOccurence(data2, 32));
+    System.out.println("Max Value: " + findMaxValue(data1));
 
 
     // add calls to show that the methods you write work.
