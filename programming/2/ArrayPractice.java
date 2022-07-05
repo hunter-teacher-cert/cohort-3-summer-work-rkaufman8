@@ -157,13 +157,19 @@ public class ArrayPractice
      printArray(data2);
     // printArray(data2);
 
-    System.out.println("First occurence of value: " + firstOccurence(data2, 12));
+    System.out.println("First occurence of req. value in position: " + firstOccurence(data2, 12));
     
     System.out.println("Max Value: " + findMaxValue(data2));
 
     System.out.println("Sum of array values: " + arraySum(data2));
 
-    System.out.println("Is it sorted? " + isSorted(data2));
+    System.out.print("Is it sorted? ");
+    if(isSorted(data2)) {
+      System.out.println("Yes!");
+    } else {
+      System.out.println("Nope :(");
+    }
+    
     System.out.println("Number of odd numbers in array: "+ countOdds(data2));
 
     //not a return function so can't call it as a parameter
