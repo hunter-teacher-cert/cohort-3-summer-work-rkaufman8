@@ -1,7 +1,7 @@
 /**
  * SuperArray by Team MarvelvsDC
- * First Last
- * collaborators: First Last, First Last
+ * Seth Adams
+ * collaborators: Rachel Kaufman, Seth Adams, Jihae Park, Rich Parker
  */
 
 /**
@@ -30,7 +30,7 @@ public class SuperArray
 
 
   //instance vars
-  private int[] data;           // "interior"/"underlying" data container
+  private int[] data;   // "interior"/"underlying" data container
   private int numberElements;   // number of "meaningful" elements
 
 
@@ -38,6 +38,8 @@ public class SuperArray
   //overloaded constructor -- allows specification of initial capacity
   public SuperArray( int size )
   {
+    int[] data = new int[size];
+    int numberElements = 0;
     //init underlying/inner storage of specified capacity
     /* YOUR SIMPLE+SMART CODE HERE */
 
@@ -51,7 +53,8 @@ public class SuperArray
   {
     //init underlying/inner storage of capacity 10
         /* YOUR SIMPLE+SMART CODE HERE */
-
+    int[] data = new int[10];   // "interior"/"underlying" data container
+    int numberElements = 0;
     //init instance vars
         /* YOUR SIMPLE+SMART CODE HERE */
   }
@@ -60,7 +63,9 @@ public class SuperArray
   // ~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~
   public void add( int value )
   {
-    // test to see if we need to grow, then grow
+    if (numberElements == data.length){
+      
+    } // test to see if we need to grow, then grow
     /**
        IMPORTANT:
        This is the first code that should run in this method
@@ -82,13 +87,20 @@ public class SuperArray
 
   public boolean isEmpty()
   {
-    //return whether this SuperArray instance is empty
-    /* YOUR SIMPLE+SMART CODE HERE */
+    if(numberElements == 0){//checks to see if any elements have meaningful data
+      return true;
+    } else {
+      return false; 
+    }
   }
 
 
   public int get(int index)
   {
+    if (index > numberElements) {
+      System.out.println("Index numbers does not have any meaningful data");     
+    }
+      return data[index];
     //return item at index
     /* YOUR SIMPLE+SMART CODE HERE */
   }
@@ -96,6 +108,7 @@ public class SuperArray
 
   public String toString()
   {
+    
     //return stringified version of this Object
     /* YOUR SIMPLE+SMART CODE HERE */
   }//end toString()
