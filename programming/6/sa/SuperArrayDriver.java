@@ -1,3 +1,9 @@
+/**
+ * SuperArray by Team MarvelvsDC
+ * Seth Adams
+ * collaborators: Rachel Kaufman, Seth Adams, Jihae Park, Rich Parker
+ */
+
 import java.io.*;
 import java.util.*;
 
