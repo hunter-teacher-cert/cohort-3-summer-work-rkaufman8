@@ -1,0 +1,24 @@
+// Rachel Kaufman
+// 7.9 Exercise 1
+// 6/27/22
+
+1. Draw a table that shows the value of the variables i and n during the execution of loop.
+
+  iteration  | i  | n
+      0      | 10 | 10
+      1      | 5  | 10
+      2      | 6  | 10
+      3      | 3  | 10
+      4      | 4  | 10
+      5      | 2  | 10
+      6      | 1  | 10
+
+2. What is the output of this program?
+
+The program will output the following (one number per line):
+
+   10, 5, 6, 3, 4, 2
+
+3. Can you prove that this loop terminates for any positive value of n?
+
+For any integer value, the value is either even (divisible by two) or odd (not divisible by two). Even numbers will get divided down by 2, and odd numbers will add one - which will turn them into even numbers. At some point after dividing by two all numbers will end up down to a value from 1-10, all of which (as shown in table above) will lead to the loop ending when i hits 1.

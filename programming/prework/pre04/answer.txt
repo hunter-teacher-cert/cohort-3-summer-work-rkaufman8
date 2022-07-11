@@ -1,0 +1,44 @@
+// Rachel Kaufman
+// 5.12 Exercises 1, 2, 3
+// 6/27/22
+
+///////////////////////////////////////////////////////////////////
+
+EXERCISE 1
+Rewrite this code using a single if statement.
+
+if (x > 0 && x < 10) {
+    System.out.println("positive single digit number.");
+}
+
+///////////////////////////////////////////////////////////////////
+
+EXERCISE 2
+1. Draw a stack diagram that shows the state of the program the second time zoop is invoked.
+
+           | bizz | buzz | fred        | bob | strangStrung | fork
+    main   | 5    | 2    |             |     |              |
+    zoop   |      |      | "just for " | 5   |              |
+    ping   |      |      |             |     | "not "       |
+    clink  |      |      |             |     |              | 4
+    zoop   | 5    | 2    | "breakfast "| 4   | "not "       | 4
+
+2. What is the complete output?
+
+just for
+any not more 
+It's breakfast
+!
+
+///////////////////////////////////////////////////////////////////
+
+EXERCISE 3
+Draw a stack diagram that shows the state of the program in Section 5.8 after main invokes nLines with the parameter n == 4, just before the last invocation of nLines returns.
+
+            | n
+    main    |
+    nLines  | 4
+    nLines  | 3
+    nLines  | 2
+    nLines  | 1
+    nLines  | 0

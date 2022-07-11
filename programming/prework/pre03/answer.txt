@@ -1,0 +1,22 @@
+// Rachel Kaufman
+// 4.11 Exercise 1
+// 6/27/22
+
+1. What is the output of the following program? 
+
+No, I wug.
+You wugga wug.
+I wug.
+
+2. Draw a stack diagram that shows the state of the program the first time ping is invoked.
+
+      main[]
+      zoop[]
+      baffle[]
+      ping[]
+
+  // I am actually uncertain how to create a stack diagram for methods with no variables??
+
+3. What happens if you invoke baffle(); at the end of the ping method? (We will see why in the next chapter.)
+
+If you invoke baffle() at the end of the ping method the program will get stuck in an infinite loop - ping will call baffle which calls ping which calls baffle, infinitely.
