@@ -127,9 +127,9 @@ public class AlPractice{
     }
 
     for (int i = 0; i < ListB.size(); i++) {
-      int newIndex = 2*i + 1;
-      zippedArray.add(newIndex, ListB.get(i));
+      zippedArray.add(2*i+1, ListB.get(i));
     }
+    
     return zippedArray;
   }
 
