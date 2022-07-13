@@ -20,8 +20,8 @@ ________________
 [051] sumOfList(ArrayList<Integer> dataList)
 [068] swapElements(ArrayList<Integer> dataList, int indexA,int indexB)
 [085] removeValue(ArrayList<Integer> dataList, int valueToRemove)
-[101] sumLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB)
-[121] zipLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB)
+[100] sumLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB)
+[120] zipLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB)
 */
 
 
@@ -96,7 +96,6 @@ public class AlPractice{
     }
   }
 
-
 // sumLists sums the values at index i from ListA and ListB and adds them to sumArrayList at the same index.
   public static ArrayList<Integer> sumLists(ArrayList<Integer>ListA, ArrayList<Integer>ListB){
 
@@ -119,17 +118,21 @@ public class AlPractice{
 
 // zipLists "zippers" together 2 lists such that the new list looks like [A0, B0, A1, B1 ... An, Bn]
   public static ArrayList<Integer> zipLists(ArrayList<Integer>ListA,ArrayList<Integer>ListB){
-    
+
+    //create a new array to hold all the data
     ArrayList<Integer> zippedArray = new ArrayList<Integer>();
 
+    //copy over all of the elements from ListA
     for (int i = 0; i < ListA.size(); i++) {
       zippedArray.add(ListA.get(i));
     }
 
+    //insert the elements from ListB into all the odd-numbered elements
     for (int i = 0; i < ListB.size(); i++) {
       zippedArray.add(2*i+1, ListB.get(i));
     }
-    
+
+    //return the new ArrayList
     return zippedArray;
   }
 
@@ -140,36 +143,36 @@ public class AlPractice{
     ArrayList<Integer> al = buildRandomList(10,15);
     System.out.println("\nArrayList al:\n" + al);
 
-    //test the sumOfList
-    System.out.println("\nThe sum of ArrayList al is: "
- + sumOfList(al));
+ //    //test the sumOfList
+ //    System.out.println("\nThe sum of ArrayList al is: "
+ // + sumOfList(al));
 
     // test swapElements
     swapElements(al,2,6);
     System.out.println("\nArrayList al after swapping the elements at 2 and 6:\n" + al);
 
-    // test removeValue
-    al.add(5);
-    al.add(10);
-    al.add(5);
-    al.add(13);
-    al.set(2,5);
-    al.set(3,5);
-    System.out.println("\nArrayList al after adding 4 more elements & setting indices 2 and 3 to the value 5:\n" + al);
-    removeValue(al,5);
-    System.out.println("\nRemove all 5 values from ArrayList al:\n" + al);
+    // // test removeValue
+    // al.add(5);
+    // al.add(10);
+    // al.add(5);
+    // al.add(13);
+    // al.set(2,5);
+    // al.set(3,5);
+    // System.out.println("\nArrayList al after adding 4 more elements & setting indices 2 and 3 to the value 5:\n" + al);
+    // removeValue(al,5);
+    // System.out.println("\nRemove all 5 values from ArrayList al:\n" + al);
 
-    //test out sumLists
-    ArrayList<Integer> al2 = buildRandomList(5,10);
-    System.out.println("\nArrayList al2:\n" + al2);
-    ArrayList<Integer> al3 = buildRandomList(5,10);
-    System.out.println("\nArrayList al3:\n" + al3);
-    ArrayList<Integer> al4 = sumLists(al2, al3);
-    System.out.println("\nThe sum of the elements of al2 and al3 is ArrayList al4:\n" + al4);
+    // //test out sumLists
+    // ArrayList<Integer> al2 = buildRandomList(5,10);
+    // System.out.println("\nArrayList al2:\n" + al2);
+    // ArrayList<Integer> al3 = buildRandomList(5,10);
+    // System.out.println("\nArrayList al3:\n" + al3);
+    // ArrayList<Integer> al4 = sumLists(al2, al3);
+    // System.out.println("\nThe sum of the elements of al2 and al3 is ArrayList al4:\n" + al4);
 
-    //test out zipLists
-    ArrayList<Integer> al5 = zipLists(al2,al3);
-    System.out.println("\nal2 zipped into al3 is ArrayList al5:\n" + al5);
+    // //test out zipLists
+    // ArrayList<Integer> al5 = zipLists(al2,al3);
+    // System.out.println("\nal2 zipped into al3 is ArrayList al5:\n" + al5);
 
   }
 
