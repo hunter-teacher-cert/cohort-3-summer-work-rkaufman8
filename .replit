@@ -1,3 +1,5 @@
 language = "bash"
 #run = "cd ds/arraylists; javac AlPractice.java; java AlPractice"
-run = "cd ds/arraylists; javac AlPractice.java; java AlPractice"
+#run = "cd ds/pointers; javac Driver.java; java Driver"
+#run = "cd methods/714-drivernav; javac Practice.java; java Practice"
+run = "cd ds/LinkedLists; javac Driver.java; java Driver"
