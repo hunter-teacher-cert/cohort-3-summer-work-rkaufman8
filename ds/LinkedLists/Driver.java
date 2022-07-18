@@ -15,6 +15,9 @@ public class Driver{
 
     System.out.println("\nThe Node at index 1 is: " +  l.get(1) );
     System.out.println("The Node at index 10 is: " + l.get(10) );
+
+    System.out.print("\nThe size of the LinkedList is: ");
+    System.out.println(l.size());
     
     
   }

@@ -1,3 +1,4 @@
+
 /**
  * Driver - Node - LinkedList
  * collaborators: Rachel Kaufman, Joel Bianchi, Latoya B, Jessica N
@@ -10,12 +11,12 @@ import java.util.*;
 Basic
 -----
 + add(string value)
-- get(int index);
-- toString()
++ get(int index);
++ toString()
 
 Intermediate 
 ------------
-- size()
++ size()
 - add(int index,String value)
 - indexOf(String value);
 - toArray()
@@ -33,6 +34,7 @@ public class LinkedList{
     head = null;
   }
 
+  
   // add() adds a new node that points to the head, and makes the new node the new head
   public void add(String value){
 
@@ -43,6 +45,7 @@ public class LinkedList{
     head = front;
   }
 
+  
 // get() returns the string at the node in the specified index
   public String get(int targetIndex){
 
@@ -66,6 +69,7 @@ public class LinkedList{
     return "Value at index not found.";
   }
 
+  
  // toString() returns a string version of the list
   public String toString(){
     
@@ -92,33 +96,56 @@ public class LinkedList{
   }
 
   
-
-  /**
-  returns the number of elements in the list
-  */
+  //size() returns the number of elements in the list
   public int size(){
-    return 0;
+    //initialize a counter variable for the number of elements
+    int numElements = 0;
+
+    //create a walker
+    Node walker = head;
+    
+    //keep going through the linkedlist until reaching a null
+    while (walker != null) {
+
+      //counter++
+      numElements++;
+      
+      //move walker on to the next node
+      walker = walker.getNext();
+    } 
+
+    //return counter
+    return numElements;
   }
 
 
-
-  /**
-  Parameters:
-  index - an int with the location to add
-  value - the new value
-
-  Adds a new node with the String value to the list.
-  The new node should be added at the location specified by the index.
-
-  For example, given the list:
-  "a" -> "b" -> "c" -> "d"
-
-  add(1,"z") results in:
-  "a"-> "z" -> "b" -> "c" -> "d"
-
-  */
+//add(int String) adds the string value at given index
   public void add(int index, String value){
 
+    //create walker
+    Node walker = head;
+
+    //for loop until index (+1??)
+    //pasted from get() method
+    for(int i=0; i<=targetIndex && walker != null; i++ ){
+      
+      //move walker
+      walker = walker.getNext();
+    }
+    //create a new node that points to the "next" location
+    //Node newVal = new Node(string val, walker);
+
+    //set previous to point to newVal
+    
+    /*
+list is {joel, latoya, rachel, saranii}
+want to insert "holly" at position 2 (new list J, L, H, R, S)
+i = 0 i<ti walker = L
+i = 1 i<ti walker = R
+i = 2 exits loop
+newVal node = (string, walker) (points to R)
+??? how to make L point to H?
+*/
   }
 
 
