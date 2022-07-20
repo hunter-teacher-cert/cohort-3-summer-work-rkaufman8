@@ -17,7 +17,7 @@ Intermediate
 ------------
 + size()
 + add(int index,String value)
-- indexOf(String value);
++ indexOf(String value);
 - toArray()
 
 Challenge
@@ -141,16 +141,18 @@ public class LinkedList{
     } 
 
     //EDGE CASE 2: The user tries an index that's too big or negative
-    else if (index > numElements - 1 || index < 0) {
+    else if (index >= numElements || index < 0) {
       System.out.println("Error!  Cannot add: index is out of range!");
     }
 
     //VALID CASE: User provides a valid non-zero index
     else {
-      //create the new node & point the new node to the node at the current index
+      //create the new node
+      //& point the new node to the node at the current index
       Node newNode = new Node(value, getNode(index));  //Holly point to Rach
 
-      //get the previous node (index-1) and set the new node as its next node
+      //get the previous node (index-1)
+      //& set the new node as its next node
       getNode(index-1).setNext(newNode);    //Latoya to point to Holly
       
       //update the variable tracking size of list  
@@ -208,24 +210,36 @@ public class LinkedList{
 
   It should then copy all of the values to the array and return
   the array.
-
   */
+
+
   public String[] toArray(){
-    //new array using size()
-    //for i = 0 up to size and next item isn't null
-    ////array[i] = walker val
-    ////walker moves to next?
-    return null;
+    
+    //Create a new String array with the same size as the LinkedList
+    String[] arr = new String[numElements];
+
+    //create a walker
+    Node walker = head;
+
+    //loop through all the indices up to numElements
+    //& the next element isn't null
+    for(int i=0; i<numElements && walker != null; i++){
+
+      //Assign each walker's value to the array
+      arr[i] = walker.getData();
+            
+      //move walker on to the next node
+      walker = walker.getNext();
+    }
+
+    //return the String[]
+    return arr;
   }
-
-
 
   /**
   Remove the Node at location index from the list.
 
-  Ex:
-  
-  Given the list:
+  Ex: Given the list:
   "a"->"b"->"c"->"d"->"e"
 
   remove(2) results in:
@@ -233,6 +247,22 @@ public class LinkedList{
   */
   public void remove(int index){
 
+    //EDGE CASE: removing 0
+    if(index == 0){
+      head = getNode(1);
+    }
+
+    //PRIMARY CASE: removing an index 1-numElements
+    else{
+     //access the node BEFORE the index
+      Node b = getNode(index-1);
+
+      //change Node b to point to d
+      b.setNext( getNode(index+1) );
+      
+    }
+
+ 
     //update the variable tracking size of list
     numElements--;
   }
