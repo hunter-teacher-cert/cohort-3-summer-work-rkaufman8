@@ -77,27 +77,8 @@ public static char[][] vBarGraphify(int[] nums) {
     }
 
   for (int col = 0; col < nums.length; col++) {
-    //String s = "" + col;
-    //also i want to try this line:
-    //String s = String.valueOf(col);
-    //String s = col.toString();  //toString() can only be called on Objects, not primitives
-    //lol but it worked anyway, it was just running the previous compiled class
-    //ooooooo i'm learning so much lol; :)
-    //I'm still baffled by why the char wasn't working...
 
-    // i saw a thing where it was like
      char c = (char)(col + '0');
-    // similar to what you did for strings
-    // that seems like a promising lead... let's try it'
-    // yay????
-    // Okay... ASCI table values  '0' is 48 https://www.asciitable.com/
-    //the character for 4 is the number 52
-    //if we just change the VALUE 4 to a char, we're pulling 4 from the ASCII table, which is some ancient non-existent empty char
-    // LOL
-    //well that makes sense
-    //That was cool?
-    //yes! i love co-problemsolving (+1)
-    // leaving all these notes bc <3 them
 
     vArray[maxVal][col] = c;
   }
